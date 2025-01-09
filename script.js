@@ -37,28 +37,12 @@ let movies = [
     }
 ];
 
-// http://www.omdbapi.com/?i=tt3896198&apikey=eaf269d3
-
-
 //get the home page
 app.get('/', async (req, res) => {
     
     const result = await db.query('SELECT * FROM watched_movies');
     const reviews = await db.query('SELECT * FROM movie_reviews'); 
-    // const idList = await db.query('SELECT imdbid FROM watched_movies');
 
-    // newIDs.forEach(async function(newID) {
-    //     // console.log(newID.imdbid);
-    //     const getPoster = await axios.get(`http://www.omdbapi.com/?&apikey=eaf269d3&i=${newID.imdbid}`);
-    //     result.rows.forEach(function(row) {
-    //         if (row.imdbid === newID.imdbid) {
-    //             row.Poster = getPoster.data.Poster;
-    //             // console.log(row);
-    //         }
-    //     });
-    // });
-
-    // let reviewerData = JSON.stringify(reviews);
     console.log(reviews.rows);
     console.log(JSON.stringify(reviews.rows));
 
@@ -129,36 +113,3 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`);
   });
 
-  
-
-//   const sortBy = req.body.order; // This is the selected value from the dropdown
-    
-//   let sortedItems = [...items]; // Create a copy of the data to sort
-  
-  // Sort based on the selected option
-//   switch (sortBy) {
-//       case 'recency':
-          // Sort by recency (newest to oldest)
-    //       sortedItems.sort((a, b) => b.releaseYear - a.releaseYear);
-    //       break;
-    //   case 'release_yearASC':
-          // Sort by release year (oldest to newest)
-    //       sortedItems.sort((a, b) => a.releaseYear - b.releaseYear);
-    //       break;
-    //   case 'release_yearDSC':
-          // Sort by release year (newest to oldest)
-    //       sortedItems.sort((a, b) => b.releaseYear - a.releaseYear);
-    //       break;
-    //   case 'rating':
-          // Sort by rating (highest to lowest)
-    //       sortedItems.sort((a, b) => b.rating - a.rating);
-    //       break;
-    //   default:
-          // If no option is selected or it's the default state
-        //   break;
-//   }
-  
-  // Respond with the sorted items (or render a view)
-  // In this case, we'll just send the sorted data as JSON
-//   res.json(sortedItems); // You can replace this with res.render() to render a view
-// });
