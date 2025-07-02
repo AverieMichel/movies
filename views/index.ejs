@@ -1,0 +1,67 @@
+<%- include('./partials/header.ejs') -%>
+
+
+
+<!-- send over book title, author, date read, rating and review -->
+<form class="search-bar" method="post" action="/search">
+    <label class="lable" for="newMovie">What movies have you watched?</label><br>
+    <input class="textinput" type="text" id="newMovie" name="movie-name">
+    <button class="search" id="fetchDataBtn">Search</button>
+</form>
+    <span id="apiResponse"></span>
+    <div id="addMovieForm" hidden="true">
+        <form action="/new" method="post">
+            <label>How would u rate this movie?</label>
+            <input type="text" id="rating" name="rating"/>
+            <input type="hidden" id="imdbId" name="imdbId" />
+            <button type="submit">Add My Review!</button>
+        </form>
+    </div>
+
+
+    <div class="movie-container">
+
+
+    <form class="sortBy" method="POST" action="/">
+        <label for="order_selection">Sort By:</label>
+        <select name="order" id="order_selection" onchange="this.form.submit()">
+            <option value="">--Sort By--</option>
+            <option value="recency">Recency</option>
+            <option value="release_yearASC">Release Year newest-oldest</option>
+            <option value="release_yearDSC">Release Year oldest-newest</option>
+            <option value="rating">Rating</option>
+        </select>
+    </form>
+
+
+    <% movies.forEach(function(movie) { %>
+    <!-- </br> -->
+        <input type="hidden" id="imdbid" name="imdbid" value="<%= movie.imdbid %>" />
+        <div class="moviePart1">
+            <img id="poster" src="<%- movie.posters %>" width="150px">
+            <h2 id="title"> <%= movie.title  %> <span class="normal">(<%= movie.release_year %>)</span></h2>
+        </div>
+        <div class="moviePart2">
+            <h3 id="director"> <%= movie.director %> </h3> </br>
+            <p> <%= movie.plot %> </p>
+            <p> <%= movie.date_added %></p>
+        </div>
+
+        <h4>Reviews</h4>
+        <% reviews
+          .filter(review => review.imdbid === movie.imdbid)
+          .forEach(review => { %>
+            <p><%= review.reviewer %> - <%= review.score %> - <%= review.notes %></p>
+        <% }) %>
+        
+        <form action="/delete" method="POST">
+            <input type="hidden" name="imdbid" value="<%= movie.imdbid %>">
+            <button type="submit">Delete</button>
+          </form>
+
+  <% }); %> 
+</div>    
+
+
+<%- include('./partials/footer.ejs') -%>
+

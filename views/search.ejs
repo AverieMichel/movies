@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') -%>
+
+<div class="selection-container">
+    <% movies.forEach(function(movie) { %>
+    <form action="/new" method="post" name="newMovie">
+        <input type="hidden" id="imdbID" name="imdbID" value="<%= movie.imdbID %>" />
+        <ul>
+            <li>
+            <button name="selectMovie" id="selectMovie">
+                <img src="<%= movie.Poster && movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png' %>" alt="<%= movie.Title %> poster" height="200px">
+
+
+                </button> <%= movie.Title %> , (<%=  movie.Year %>)
+                
+            </li>
+        </ul>
+    </form>
+    <% }); %>
+</div>
+
+
+<%- include('./partials/footer.ejs')-%>
+

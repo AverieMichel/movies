@@ -1,0 +1,123 @@
+
+
+.container {
+    display: grid;
+    justify-content:left;
+    background-color:#E6B9A6;
+}
+
+h1 {
+    margin-left: 200px;
+}
+
+html {
+    background-color:black;
+    color: white;
+    height: 100vh;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+footer {
+    background-color:#E6B9A6 ;
+}
+
+.movie-container {
+    display: grid;
+    justify-content: center;
+    padding: 50px;
+    /* margin: 50px; */
+    margin: 20px 50px 20px 50px;
+    border: #E6B9A6 solid 5px;
+}
+
+#poster {
+    display: inline-grid;
+    justify-content: center;
+    padding: 20px;
+}
+
+.moviePart1 {
+    margin-top: 20px;
+}
+
+#title {
+    float: right;
+    margin-right: 50px;
+}
+
+.review {
+    /* float: right; */
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.selection-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul {
+    list-style: none;
+}
+
+.new-review{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster {
+    /* position: relative; */
+    display: grid;
+    justify-self: center;
+    padding: 25px;
+}
+
+.subBtn {
+    height: 150px;
+    width: 400px;
+}
+
+.search-bar {
+    display: grid;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+}
+
+.lable {
+    margin-top: 10px;
+}
+
+.textinput {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: grey;
+    border-radius: 10px;
+    width: fit-content;
+    justify-self: center;
+}
+
+button:hover {
+    background-color: #E6B9A6;
+    color: black;
+    cursor: pointer;
+  }
+
+form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.sortBy {
+    display: grid;
+    justify-self: center;
+}
